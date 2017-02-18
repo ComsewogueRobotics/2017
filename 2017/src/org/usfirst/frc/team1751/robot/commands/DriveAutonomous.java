@@ -3,25 +3,29 @@ package org.usfirst.frc.team1751.robot.commands;
 import org.usfirst.frc.team1751.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class DriveAutonomous extends Command {
 
-    public DriveAutonomous() {
+    public DriveAutonomous(double timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	setTimeout(timeout);
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(2);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.drivetrain.arcadeDrive(.1, -Robot.drivetrain.angle(), 1);
+    protected void execute(){
+    	SmartDashboard.putNumber("Gyro", Robot.drivetrain.getAngle());
+    	Robot.drivetrain.arcadeDrive(.6, (.1*(Robot.drivetrain.getAngle())), 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -28,8 +28,8 @@ public class Robot extends IterativeRobot {
 	public static final DriveTrain drivetrain = new DriveTrain();
 	public static OI oi;
 
-	Command autonomousCommand;
-	//SendableChooser<Command> chooser;
+	private Command autonomousCommand;
+	private SendableChooser<Command> chooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,9 +38,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		//chooser.addDefault("Auto Drive FWD", new auto_driveFWD());
+		chooser = new SendableChooser<Command>();
+		chooser.addDefault("Auto Drive FWD", new auto_driveFWD());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		//SmartDashboard.putData("Auto mode", chooser);
+		SmartDashboard.putData("Auto mode", chooser);
 		CameraServer server = CameraServer.getInstance();
 		UsbCamera shooterCam = server.startAutomaticCapture();
 		shooterCam.setFPS(10);
@@ -48,7 +49,8 @@ public class Robot extends IterativeRobot {
 		UsbCamera driveCam = server.startAutomaticCapture();
 		driveCam.setFPS(10);
 		driveCam.setResolution(640,480);
-		SmartDashboard.putNumber("Gyro",Robot.drivetrain.angle());
+		drivetrain.calGyro();
+		SmartDashboard.putNumber("Gyro",Robot.drivetrain.getAngle());
 	}
 
 	/**
@@ -79,8 +81,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		//autonomousCommand = chooser.getSelected();
-		autonomousCommand = new AutonomousCommand();
+		drivetrain.resetGyro();
+		autonomousCommand = chooser.getSelected();
+		//autonomousCommand = new AutonomousCommand();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

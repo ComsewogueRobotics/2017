@@ -22,7 +22,8 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(Robot.oi.getDriveStick().getY(), -Robot.oi.getDriveStick().getX(), 1 /*Robot.oi.getDriveStick().getThrottle()*/);
+    	SmartDashboard.putNumber("Gyro", Robot.drivetrain.getAngle());
+    	Robot.drivetrain.arcadeDrive(-Robot.oi.getDriveStick().getY(), -Robot.oi.getDriveStick().getX(), 1 /*Robot.oi.getDriveStick().getThrottle()*/);
     }
 
     // Make this return true when this Command no longer needs to run execute()

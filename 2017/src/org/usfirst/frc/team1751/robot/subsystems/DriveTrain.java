@@ -26,12 +26,18 @@ public class DriveTrain extends Subsystem {
 
 	}
 	
-	public double angle(){
-		return gyro.getAngle();
+	public double getAngle(){
+		return gyro.getAngle() % 360;
 	}
-	
+	public void resetGyro(){
+		gyro.reset();
+	}
+	public void calGyro(){
+		gyro.calibrate();
+		System.out.println("Calibration complete.");
+	}
 	public void arcadeDrive(double move, double turn, double throttle){
-		robotdrive.arcadeDrive(-move, turn, true);
+		robotdrive.arcadeDrive(move, turn, true);
 	}
 
 	@Override

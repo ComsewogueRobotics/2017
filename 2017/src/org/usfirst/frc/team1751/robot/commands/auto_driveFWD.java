@@ -25,6 +25,8 @@ public class auto_driveFWD extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new DriveAutonomous());
+    	addParallel(new DriveAutonomous(2));
+    	addParallel(new IntakeIn(4));
+    	addParallel(new AutoShooter(10,-1));
     }
 }
