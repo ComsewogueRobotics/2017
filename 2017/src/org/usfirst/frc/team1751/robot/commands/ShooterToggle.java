@@ -16,10 +16,10 @@ public class ShooterToggle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	double adjustedSpeed = (-Robot.oi.getOpStick().getZ());
-    	adjustedSpeed = (adjustedSpeed+1)/2;
-    	Robot.shooter.setShooter(-adjustedSpeed);
-    	System.out.println(-adjustedSpeed);
+		double adjustedSpeed = (-Robot.oi.getOpStick().getZ());
+		adjustedSpeed = (adjustedSpeed+1)/2;
+		Robot.shooter.setShooter(-adjustedSpeed);
+		System.out.println("Speed of shooter is: " + (-adjustedSpeed));
     }
 
     // Called repeatedly when this Command is scheduled to run

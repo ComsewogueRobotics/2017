@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team1751.robot;
 
-import org.usfirst.frc.team1751.robot.commands.auto_driveFWD;
+import org.usfirst.frc.team1751.robot.commands.Auto1;
 import org.usfirst.frc.team1751.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1751.robot.subsystems.Shooter;
 
@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser<Command>();
-		chooser.addDefault("Auto Drive FWD", new auto_driveFWD());
+		chooser.addDefault("Auto Drive FWD and Shoot", new Auto1());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		CameraServer server = CameraServer.getInstance();

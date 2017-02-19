@@ -11,19 +11,21 @@ public class ReleaseBalls extends Command {
 
     public ReleaseBalls() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        // eg. requires(chassis);	
     }
-    public ReleaseBalls(double timer){
-    	setTimeout(timer);
+    public ReleaseBalls(double timeout) {
+    	setTimeout(timeout);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//System.out.println("The position of the servo is: " + Robot.shooter.getServo());
     	Robot.shooter.setServo(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +35,8 @@ public class ReleaseBalls extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooter.setServo(90);
+    	//System.out.println("The position of the servo is: " + Robot.shooter.getServo());
+    	Robot.shooter.setServo(0.5);
     }
 
     // Called when another command which requires one or more of the same
