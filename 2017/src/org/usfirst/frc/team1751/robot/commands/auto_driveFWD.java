@@ -28,5 +28,6 @@ public class auto_driveFWD extends CommandGroup {
     	addParallel(new DriveAutonomous(2));
     	addParallel(new IntakeIn(4));
     	addParallel(new AutoShooter(10,-1));
+    	addParallel(new ReleaseBalls(11));
     }
 }

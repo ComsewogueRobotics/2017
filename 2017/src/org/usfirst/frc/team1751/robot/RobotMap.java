@@ -14,6 +14,7 @@ public class RobotMap {
 	public static final int D_RIGHT_2 = 3;
 	public static final int M_SHOOTER = 4;
 	public static final int M_INTAKE = 5;
+	public static final int BALL_RELEASE_SERVO = 6;
 	
 	public static final int STICK_DRIVE = 0;
 	public static final int STICK_OP = 1;
@@ -22,6 +23,7 @@ public class RobotMap {
 	public static final int INTAKE_IN = 3;
 	public static final int INTAKE_OUT = 2;
 	public static final int ACTIVATE_SHOOTER = 1;
+	public static final int BALL_RELEASE = 3;
 
 	
 	// For example to map the left and right motors, you could define the

@@ -2,6 +2,7 @@ package org.usfirst.frc.team1751.robot;
 
 import org.usfirst.frc.team1751.robot.commands.IntakeIn;
 import org.usfirst.frc.team1751.robot.commands.IntakeOut;
+import org.usfirst.frc.team1751.robot.commands.ReleaseBalls;
 import org.usfirst.frc.team1751.robot.commands.ShooterToggle;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -50,6 +51,7 @@ public class OI {
 	private Button intakeIn;
 	private Button intakeOut;
 	private Button activateShooter;
+	private Button releaseBalls;
 	
 	public OI(){
 		driveStick = new Joystick(RobotMap.STICK_DRIVE);
@@ -57,9 +59,11 @@ public class OI {
 		intakeIn = new JoystickButton(driveStick, RobotMap.INTAKE_IN);
 		intakeOut = new JoystickButton(driveStick, RobotMap.INTAKE_OUT);
 		activateShooter = new JoystickButton(opStick, RobotMap.ACTIVATE_SHOOTER);
+		releaseBalls = new JoystickButton(driveStick, RobotMap.BALL_RELEASE);
 		intakeIn.whileHeld(new IntakeIn());
 		intakeOut.whileHeld(new IntakeOut());
 		activateShooter.whileHeld(new ShooterToggle());
+		releaseBalls.whileHeld(new ReleaseBalls());
 		
 		
 		
