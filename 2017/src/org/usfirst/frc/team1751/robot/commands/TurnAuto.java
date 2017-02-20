@@ -8,39 +8,31 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class DriveAutonomous extends Command {
+public class TurnAuto extends Command {
 	
-	private double speed;
+	private double angle;
 
-    public DriveAutonomous (double timeout,double s) {
+    public TurnAuto(double a) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	setTimeout(timeout);
-    	speed = s;
-    	
+    	angle = a;
     }
 
-    // Called just before this Command runs the first time
+	// Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute(){
+    protected void execute() {
     	SmartDashboard.putNumber("Gyro", Robot.drivetrain.getAngle());
-    	if (speed>0)
-    	{
-    		Robot.drivetrain.arcadeDrive(speed, (.1*(Robot.drivetrain.getAngle())), 1);
-    	}
-    	else
-    	{
-    		Robot.drivetrain.arcadeDrive(speed, -(.1*(Robot.drivetrain.getAngle())), 1);
+    	while(Robot.drivetrain.getAngle() < angle){
+    		Robot.drivetrain.arcadeDrive(0, .5, 1);
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return Robot.drivetrain.getAngle() < angle;
     }
 
     // Called once after isFinished returns true

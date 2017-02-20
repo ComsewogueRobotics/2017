@@ -1,7 +1,10 @@
 
 package org.usfirst.frc.team1751.robot;
 
-import org.usfirst.frc.team1751.robot.commands.Auto1;
+import org.usfirst.frc.team1751.robot.commands.Auto_pos1;
+import org.usfirst.frc.team1751.robot.commands.Auto_pos2;
+import org.usfirst.frc.team1751.robot.commands.Auto_pos3;
+import org.usfirst.frc.team1751.robot.commands.FunAuto;
 import org.usfirst.frc.team1751.robot.commands.driveFWD_intake_shoot;
 import org.usfirst.frc.team1751.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1751.robot.subsystems.Shooter;
@@ -39,8 +42,10 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser<Command>();
-		chooser.addDefault("Auto Drive FWD and Shoot", new Auto1());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		chooser.addDefault("Auto Drive FWD and Shoot", new FunAuto());
+		chooser.addObject("Auto Position 1", new Auto_pos1());
+		chooser.addObject("Auto Position 2", new Auto_pos2());
+		chooser.addObject("Auto Position 3", new Auto_pos3());
 		SmartDashboard.putData("Auto mode", chooser);
 		CameraServer server = CameraServer.getInstance();
 		UsbCamera shooterCam = server.startAutomaticCapture();

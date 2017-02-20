@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class driveFWD_intake_shoot extends CommandGroup {
+public class Auto_pos3 extends CommandGroup {
 
-    public driveFWD_intake_shoot() {
+    public Auto_pos3() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -25,8 +25,6 @@ public class driveFWD_intake_shoot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new DriveAutonomous(2,.6));
-    	addParallel(new IntakeIn(4));
-    	addParallel(new AutoShooter(10,-1));
+    	addParallel (new DriveAutonomous(2, .6));
     }
 }
