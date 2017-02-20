@@ -1,16 +1,13 @@
 package org.usfirst.frc.team1751.robot.commands;
 
-//import javax.swing.plaf.basic.BasicLabelUI;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
-//import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
  */
-public class Auto1 extends CommandGroup {
+public class driveFWD_intake_shoot extends CommandGroup {
 
-    public Auto1() {
+    public driveFWD_intake_shoot() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -28,8 +25,8 @@ public class Auto1 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel(new driveFWD_intake_shoot());
-    	addParallel(new auto_releaseBalls());
-    	
+    	addParallel(new DriveAutonomous(2));
+    	addParallel(new IntakeIn(4));
+    	addParallel(new AutoShooter(10,-1));
     }
 }
