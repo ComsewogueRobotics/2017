@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Auto_pos1 extends CommandGroup {
+public class TestTurn extends CommandGroup {
 
-    public Auto_pos1() {
+    public TestTurn() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -25,9 +25,6 @@ public class Auto_pos1 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential (new DriveAutonomous(1.5, -.6));
-    	addSequential (new TurnAuto(45,.8));
-    	addParallel (new AutoShooter(10, -1));
-    	addParallel (new auto_releaseBalls());
+    	addSequential (new TurnAuto(45, .8));
     }
 }

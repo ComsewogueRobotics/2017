@@ -11,28 +11,31 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class TurnAuto extends Command {
 	
 	private double angle;
+	private double speed;
 
-    public TurnAuto(double a) {
+    public TurnAuto(double a,double s) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	angle = a;
+    	angle = a+Robot.drivetrain.getAngle();
+    	speed = s;
+    	
     }
 
 	// Called just before this Command runs the first time
     protected void initialize() {
+    	//Robot.drivetrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	SmartDashboard.putNumber("Gyro", Robot.drivetrain.getAngle());
-    	while(Robot.drivetrain.getAngle() < angle){
-    		Robot.drivetrain.arcadeDrive(0, .5, 1);
-    	}
+    	double turnSpeed = -((angle-Robot.drivetrain.getAngle())*.025*speed);
+    	Robot.drivetrain.arcadeDrive(0, turnSpeed, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.drivetrain.getAngle() < angle;
+        return Math.abs(angle-Robot.drivetrain.getAngle())<5;
     }
 
     // Called once after isFinished returns true

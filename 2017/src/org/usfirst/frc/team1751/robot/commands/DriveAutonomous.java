@@ -34,7 +34,7 @@ public class DriveAutonomous extends Command {
     	}
     	else
     	{
-    		Robot.drivetrain.arcadeDrive(speed, -(.1*(Robot.drivetrain.getAngle())), 1);
+    		Robot.drivetrain.arcadeDrive(speed, (.1*(Robot.drivetrain.getAngle())), 1);
     	}
     }
 
