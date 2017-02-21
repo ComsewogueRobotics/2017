@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class TestTurn extends CommandGroup {
+public class TestShoot extends CommandGroup {
 
-    public TestTurn() {
+    public TestShoot() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,7 +24,7 @@ public class TestTurn extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
-    	addSequential (new TurnAuto(45, .8,1));
+    	addParallel (new AutoShooter(12, -.87));
+    	addParallel (new auto_releaseBalls());
     }
 }

@@ -25,6 +25,6 @@ public class Auto_pos3 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addParallel (new DriveAutonomous(2, .6));
+    	addParallel (new DriveAutonomous(3, .6));
     }
 }

@@ -13,11 +13,12 @@ public class TurnAuto extends Command {
 	private double angle;
 	private double speed;
 
-    public TurnAuto(double a,double s) {
+    public TurnAuto(double a,double s,double timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	angle = a+Robot.drivetrain.getAngle();
     	speed = s;
+    	setTimeout(timeout);
     	
     }
 
@@ -35,7 +36,7 @@ public class TurnAuto extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Math.abs(angle-Robot.drivetrain.getAngle())<5;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

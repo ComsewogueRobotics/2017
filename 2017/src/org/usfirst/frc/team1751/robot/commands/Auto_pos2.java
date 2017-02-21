@@ -26,11 +26,7 @@ public class Auto_pos2 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential (new DriveAutonomous(2,-.6));
-    	addSequential (new WaitCommand(.5));
-    	addSequential (new DriveAutonomous(1,.6));
-    	addSequential (new TurnAuto(45,.8));
-    	addParallel (new AutoShooter(10, -1));
-    	addParallel (new auto_releaseBalls());
+    	addSequential (new DriveAutonomous(2.8,-.55));
+    	
     }
 }
