@@ -29,14 +29,7 @@ public class DriveAutonomous extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
     	SmartDashboard.putNumber("Gyro", Robot.drivetrain.getAngle());
-    	if (speed>0)
-    	{
-    		Robot.drivetrain.arcadeDrive(speed, (.1*(Robot.drivetrain.getAngle())), 1);
-    	}
-    	else
-    	{
-    		Robot.drivetrain.arcadeDrive(speed, (.1*(Robot.drivetrain.getAngle())), 1);
-    	}
+    	Robot.drivetrain.arcadeDrive(speed, (.1*(Robot.drivetrain.getAngle())), 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
