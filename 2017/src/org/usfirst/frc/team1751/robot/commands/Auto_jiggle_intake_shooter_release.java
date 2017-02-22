@@ -26,7 +26,7 @@ public class Auto_jiggle_intake_shooter_release extends CommandGroup {
         // arm.
     	addParallel (new IntakeIn(10));
     	addParallel (new Jiggle());
-    	addParallel (new AutoShooter(11, -.87));
+    	addParallel (new AutoShooter(12, -.83));
     	addParallel (new auto_releaseBalls());
     }
 }

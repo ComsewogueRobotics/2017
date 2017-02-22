@@ -5,12 +5,7 @@ import org.usfirst.frc.team1751.robot.commands.Auto_pos1_BLUE;
 import org.usfirst.frc.team1751.robot.commands.Auto_pos1_RED;
 import org.usfirst.frc.team1751.robot.commands.Auto_pos2;
 import org.usfirst.frc.team1751.robot.commands.Auto_pos3;
-import org.usfirst.frc.team1751.robot.commands.FunAuto;
-import org.usfirst.frc.team1751.robot.commands.Jiggle;
 import org.usfirst.frc.team1751.robot.commands.ShedTest;
-import org.usfirst.frc.team1751.robot.commands.TestShoot;
-import org.usfirst.frc.team1751.robot.commands.TestTurn;
-import org.usfirst.frc.team1751.robot.commands.driveFWD_intake_shoot;
 import org.usfirst.frc.team1751.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1751.robot.subsystems.Shooter;
 
@@ -47,16 +42,11 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new SendableChooser<Command>();
-		//chooser.addDefault("Auto Drive FWD and Shoot", new FunAuto());
+		chooser.addDefault("Shed Test", new ShedTest());
 		chooser.addObject("Auto Position 1 (RED ALLIANCE)", new Auto_pos1_RED());
+		chooser.addObject("Auto Position 1 (BLUE ALLIANCE)", new Auto_pos1_BLUE());
 		chooser.addObject("Auto Position 2", new Auto_pos2());
 		chooser.addObject("Auto Position 3", new Auto_pos3());
-		chooser.addObject("Auto Position 1 (BLUE ALLIANCE)", new Auto_pos1_BLUE());
-		//chooser.addObject("Test Turn", new TestTurn());
-		//chooser.addObject("Test Shoot", new TestShoot());
-		//chooser.addObject("Jiggle", new Jiggle());
-		chooser.addObject("Shed Test", new ShedTest());
-		SmartDashboard.putData("Choose Auto Mode:", chooser);
 		CameraServer server = CameraServer.getInstance();
 		UsbCamera shooterCam = server.startAutomaticCapture();
 		shooterCam.setFPS(10);
@@ -66,6 +56,7 @@ public class Robot extends IterativeRobot {
 		driveCam.setResolution(640,480);
 		drivetrain.calGyro();
 		SmartDashboard.putNumber("Gyro",Robot.drivetrain.getAngle());
+		SmartDashboard.putData("Choose ", chooser);
 	}
 
 	/**

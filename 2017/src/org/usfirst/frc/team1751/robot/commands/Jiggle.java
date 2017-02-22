@@ -27,7 +27,7 @@ public class Jiggle extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential (new ResetGyro());
-    	for (int i = 0; i < 16; i++){
+    	for (int i = 0; i < 18; i++){
     		addSequential (new DriveAutonomous(.3, .5));
     		addSequential (new DriveAutonomous(.3, -.5));
     	}

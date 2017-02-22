@@ -25,8 +25,8 @@ public class ShedTest extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential (new DriveAutonomous(1.7, -.6));
-    	addSequential (new TurnAuto(38,.8,1));
+    	addSequential (new DriveAutonomous(3.8, -.6));
+    	addSequential (new TurnAuto(42,.8,1));
     	addSequential (new Auto_jiggle_intake_shooter_release());
     }
 }
